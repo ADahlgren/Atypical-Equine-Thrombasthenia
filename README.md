@@ -1,6 +1,8 @@
 # Atypical-Equine-Thrombasthenia
 Commands to analyze WGS
 
+#combine R1 and R2??
+
 
 #made uneditable
 chmod go-w data.txt
