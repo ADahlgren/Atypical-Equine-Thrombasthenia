@@ -1,0 +1,24 @@
+#FastQC individual fastq files
+fastqc file.fastq.gz
+
+#map to reference with bwa
+bwa mem -t 4 [how many threads?] ref.fa read1.fq read2.gq > horseID.sam
+
+#index ref
+samtools faidx ref.fa
+#convert to bam
+samtools import ref.fa.fai horseID.sam horseID.bam
+#sort bam file by position in genome
+samtools sort horseID.bam horseID.sorted
+#index bam file
+samtools index horseID.sorted.bam
+#can visualize for funsies
+samtools tview horseID.sorted.bam ref.fa
+
+#Call variants
+samtools mpileup -uD -f ref.fa horseID.sorted.bam | bcftools view -bvcg - > horseID. variants.raw.bcf
+bcftools horseID.view variants.raw.bcf > horseID.variants.vcf
+
+#compare variants between control and affected?
+#GATK CombineVariants to merge all vcfs
+#GATK SelectVariants to filter out variants that only occur in affected samples
