@@ -4,6 +4,9 @@ chmod a-w file
 #FastQC individual fastq files
 fastqc file.fastq.gz
 
+#need to trim?
+TrimmomaticPE read1.fq read2.fq out_R1.fq orphan1 out_R2.fq orphan2 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15 LEADING:2 TRAILING:2 SLIDINGWINDOW:4:2 MINLEN:25
+
 #map to reference with bwa
 bwa mem -t 4 [how many threads?] ref.fa read1.fq read2.gq > horseID.sam
 
