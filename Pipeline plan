@@ -1,3 +1,6 @@
+#make it so I can't mess up originial file?
+chmod a-w file
+
 #FastQC individual fastq files
 fastqc file.fastq.gz
 
