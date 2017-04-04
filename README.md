@@ -1,2 +1,2 @@
-# Atypical-Equine-Thrombasthenia
+# AET
 Commands to analyze WGS
