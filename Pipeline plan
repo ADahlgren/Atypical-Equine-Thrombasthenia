@@ -1,11 +1,15 @@
-#make it so I can't mess up originial file?
-chmod a-w file
 
 #FastQC individual fastq files
 fastqc file.fastq.gz
 
-#need to trim?
-TrimmomaticPE read1.fq read2.fq out_R1.fq orphan1 out_R2.fq orphan2 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15 LEADING:2 TRAILING:2 SLIDINGWINDOW:4:2 MINLEN:25
+#trim
+trimmomatic PE FASTQFILENAME_R1_001.fastq FASTQFILENAME_R2_001.fastq\  FASTQFILENAME_R1.qc.fq FASTQFILENAME_R1_s1_se FASTQFILENAME_R2.qc.fq FASTQFILENAME_R2_s2_se\ SLIDINGWINDOW:3:28
+
+#fastqc again
+fastqc file_R.qc.fq
+
+#remove adapters - need to be unzipped?
+scythe -a adapters.fasta.txt -o scythe_filename.fastq file.fastq.gz
 
 #map to reference with bwa
 bwa mem -t 4 [how many threads?] ref.fa read1.fq read2.gq > horseID.sam
