@@ -3,7 +3,7 @@ module load bwa
 module load samtools
 
 #create bases
-for filename in *_R1.qc.fq
+for filename in *_R1_001.qc.fq
 do
 base=$(basename $filename .qc.fq)
 echo $base
