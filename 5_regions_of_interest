@@ -1,0 +1,12 @@
+#compress and index vcf file
+module load tabix
+bgzip all_var.vcf
+tabix all_var.vcf.gz
+
+#extract region of interest- insert into []
+# -Ov = output type is uncompressed vcf
+# -r = region follows
+# bcftools view -Ov -r chr[]:[]-[] all_var.vcf.gz > [gene].vcf
+#example
+module load bcftools
+bcftools view -Ov -r chr6:19999797-20163397 all_var.vcf.gz > inpp5d.vcf
