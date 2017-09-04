@@ -18,6 +18,7 @@ grep -v "^##" ${base}_cc_eff.vcf | wc -l
 
 #filter based on fisher's exact test with p<0.05
 #CC_ALL - allelic model
+#kept decreasing cc_all value until found most significant variant (wgas)
 snpsift filter -f ${base}_cc_eff.vcf "(CC_ALL<0.05)" > ${base}_cc_eff_0.05.vcf
 
 #determine number of variants that had a p<0.05
