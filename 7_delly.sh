@@ -1,4 +1,4 @@
-module load delly
+module load delly/0.5.9
 
 #-o = output file
 #-g = path to reference genome
