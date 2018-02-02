@@ -14,6 +14,6 @@ do
       echo $base2
 
  # run trimmomatic
-trimmomatic PE ${base}.fastq.gz ${base2}.fastq.gz\  ${base}.qc.fq ${base}_s1_se ${base2}.qc.fq ${base2}_s2_se\ SLIDINGWINDOW:3:28
+trimmomatic PE ${base}.fastq.gz ${base2}.fastq.gz ${base}.qc.fq ${base}_s1_se ${base2}.qc.fq ${base2}_s2_se SLIDINGWINDOW:3:28
 
 done
