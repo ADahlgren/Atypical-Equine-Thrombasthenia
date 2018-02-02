@@ -14,7 +14,7 @@ snpsift caseControl -f ${base}.vcf "-+--++--++--------" > ${base}_cc.vcf
 snpeff EquCab2.86 ${base}_cc.vcf > ${base}_cc_eff.vcf
 
 #determine number of variants
-grep -v "^##" ${base}_cc_eff.vcf | wc -l
+grep -v "^#" ${base}_cc_eff.vcf | wc -l
 
 #filter based on fisher's exact test with p<0.05
 #CC_ALL - allelic model
@@ -22,6 +22,6 @@ grep -v "^##" ${base}_cc_eff.vcf | wc -l
 snpsift filter -f ${base}_cc_eff.vcf "(CC_ALL<0.05)" > ${base}_cc_eff_0.05.vcf
 
 #determine number of variants that had a p<0.05
-grep -v "^##" ${base}_cc_eff_0.05.vcf | wc -l
+grep -v "^#" ${base}_cc_eff_0.05.vcf | wc -l
 
 done
