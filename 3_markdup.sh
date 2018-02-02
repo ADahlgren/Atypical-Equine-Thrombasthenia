@@ -8,6 +8,6 @@ base=$(basename $filename .bam)
 echo $base
 
 #remove PCR duplicates 
-picard MarkDuplicates INPUT=${base}.bam OUTPUT=${base}_dedup.bam METRICS_FILE=${base}_metrics.txt
+picard MarkDuplicates INPUT=${base}.bam OUTPUT=${base}_dedup.bam METRICS_FILE=${base}_metrics.txt REMOVE_DUPLICATES=true
 
 done
