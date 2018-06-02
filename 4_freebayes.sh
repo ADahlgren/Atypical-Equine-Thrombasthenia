@@ -1,4 +1,4 @@
-module load freebayes
+module load freebayes/1.2.0
 
 #call variants via haplotype
 #-f reference location
